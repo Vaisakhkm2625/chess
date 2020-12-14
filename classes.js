@@ -49,8 +49,9 @@ class karu {
     }
 
     possiblePos(){
-        while(this.possiPos.length>0)
-        {this.possiPos.pop();}
+        while(this.possiPos.length>0){
+            this.possiPos.pop(); 
+        }
         if(this.powno == 1){
             if(this.pos.y == 1 && this.team == 0){
                 console.log(this.pos.x +"+"+this.pos.y)
@@ -74,6 +75,29 @@ class karu {
                 this.possiPos[0].set(this.pos.x,this.pos.y-1);
             }
 
+        }
+        else if (this.powno == 3){
+            var k = 0;
+            for(var i = 1;this.pos.x+i <8 && this.pos.y+i<8;i++){
+                this.possiPos.push(new cellPos());
+                this.possiPos[k].set(this.pos.x+i,this.pos.y+i);
+                k++;
+            }
+            for(var i = 1;this.pos.x-i >-1 && this.pos.y+i<8;i++){
+                this.possiPos.push(new cellPos());
+                this.possiPos[k].set(this.pos.x-i,this.pos.y+i);
+                k++;
+            }
+            for(var i = 1;this.pos.x+i <8 && this.pos.y-i>-1;i++){
+                this.possiPos.push(new cellPos());
+                this.possiPos[k].set(this.pos.x+i,this.pos.y-i);
+                k++;
+            }
+            for(var i = 1;this.pos.x-i>-1 && this.pos.y-i>-1;i++){
+                this.possiPos.push(new cellPos());
+                this.possiPos[k].set(this.pos.x-i,this.pos.y-i);
+                k++;
+            }
         }
     }
 
